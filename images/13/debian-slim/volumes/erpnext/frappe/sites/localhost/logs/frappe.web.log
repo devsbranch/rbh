@@ -1,0 +1,12 @@
+2022-05-15 10:38:44,513 INFO frappe.web {'site': 'localhost', 'remote_addr': '172.27.0.12', 'base_url': 'http://localhost/favicon.ico', 'full_path': '/favicon.ico?', 'method': 'GET', 'scheme': 'http', 'http_status_code': 404}
+2022-05-15 10:38:44,698 INFO frappe.web {'site': 'localhost', 'remote_addr': '172.27.0.12', 'base_url': 'http://localhost/', 'full_path': '/?', 'method': 'GET', 'scheme': 'http', 'http_status_code': 200}
+2022-05-15 10:38:44,833 INFO frappe.web {'site': 'localhost', 'remote_addr': '172.27.0.12', 'base_url': 'http://localhost/sw.js', 'full_path': '/sw.js?', 'method': 'GET', 'scheme': 'http', 'http_status_code': 200}
+2022-05-15 10:38:48,690 INFO frappe.web {'site': 'localhost', 'remote_addr': '172.27.0.12', 'base_url': 'http://localhost/sw.js', 'full_path': '/sw.js?', 'method': 'GET', 'scheme': 'http', 'http_status_code': 200}
+2022-05-15 10:38:48,932 INFO frappe.web {'site': 'localhost', 'remote_addr': '172.27.0.12', 'base_url': 'http://localhost/website_script.js', 'full_path': '/website_script.js?', 'method': 'GET', 'scheme': 'http', 'http_status_code': 200}
+2022-05-15 10:38:49,129 INFO frappe.web {'site': 'localhost', 'remote_addr': '172.27.0.12', 'base_url': 'http://localhost/pwa.js', 'full_path': '/pwa.js?', 'method': 'GET', 'scheme': 'http', 'http_status_code': 200}
+2022-05-15 10:38:49,288 INFO frappe.web {'site': 'localhost', 'remote_addr': '172.27.0.12', 'base_url': 'http://localhost/', 'full_path': '/?', 'method': 'POST', 'scheme': 'http', 'http_status_code': 200}
+2022-05-15 10:38:49,637 INFO frappe.web {'site': 'localhost', 'remote_addr': '172.27.0.12', 'base_url': 'http://localhost/', 'full_path': '/?', 'method': 'GET', 'scheme': 'http', 'http_status_code': 200}
+2022-05-15 10:38:50,881 INFO frappe.web {'site': 'localhost', 'remote_addr': '172.27.0.12', 'base_url': 'http://localhost/sw.js', 'full_path': '/sw.js?', 'method': 'GET', 'scheme': 'http', 'http_status_code': 200}
+2022-05-15 10:39:15,707 INFO frappe.web {'site': 'localhost', 'remote_addr': '172.27.0.12', 'base_url': 'http://localhost/', 'full_path': '/?', 'method': 'POST', 'scheme': 'http', 'http_status_code': 200}
+2022-05-15 10:39:17,896 INFO frappe.web {'site': 'localhost', 'remote_addr': '172.27.0.12', 'base_url': 'http://localhost/sw.js', 'full_path': '/sw.js?', 'method': 'GET', 'scheme': 'http', 'http_status_code': 200}
+2022-05-15 10:39:18,484 INFO frappe.web {'site': 'localhost', 'remote_addr': '172.27.0.12', 'base_url': 'http://localhost/desk', 'full_path': '/desk?', 'method': 'GET', 'scheme': 'http', 'http_status_code': 200}

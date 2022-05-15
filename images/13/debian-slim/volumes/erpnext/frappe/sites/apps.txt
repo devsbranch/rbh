@@ -1,0 +1,8 @@
+frappe
+erpnext
+erpnext_autoinstall
+erpnext_ocr
+recod_erpnext_design
+frappe_pwa
+erpnext_france
+mautic

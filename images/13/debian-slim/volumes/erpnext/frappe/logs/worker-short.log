@@ -1,0 +1,4 @@
+10:36:51 Worker rq:worker:a61f4ef68b324c7ab83f01968124dd0d.09d47154bf68.580.short: started, version 1.6.1
+10:36:51 Subscribing to channel rq:pubsub:a61f4ef68b324c7ab83f01968124dd0d.09d47154bf68.580.short
+10:36:51 *** Listening on short...
+10:36:51 Cleaning registries for queue: short

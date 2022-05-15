@@ -1,0 +1,115 @@
+os: linux
+dist: trusty
+
+services: docker
+
+language: shell
+
+branches:
+  only:
+    - master
+
+before_install:
+  - env | sort
+  - export home=$(pwd)
+  - export image_dir="${home}/images/${VERSION}/${VARIANT}"
+  - export DOCKER_TAG="${VERSION}-${VARIANT}-travis"
+  - export IMAGE_NAME="docker-erpnext-ext:${DOCKER_TAG}"
+  - export IMAGE_ALIAS_NAME="docker-erpnext-ext:${VERSION}"
+
+install:
+  - echo "Changing to image directory ($image_dir)"
+  - cd "$image_dir"
+  # Test container build
+  - travis_retry travis_wait 80 docker build --build-arg TAG=${DOCKER_TAG} --build-arg VCS_REF=${TRAVIS_COMMIT} --build-arg BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"` -t ${IMAGE_NAME} -t ${IMAGE_ALIAS_NAME} .
+  #- travis_retry travis_wait 80 docker-compose -f "docker-compose.${DATABASE}.yml" build
+
+before_script:
+  - docker images
+
+script:
+  - echo "Changing to image directory ($image_dir)"
+  - cd "$image_dir"
+  # Test container run
+  - travis_retry docker-compose -f "docker-compose.${DATABASE}.yml" up -d
+  - docker-compose -f "docker-compose.${DATABASE}.yml" logs -f "sut"
+  - docker-compose -f "docker-compose.${DATABASE}.yml" ps
+  - docker-compose -f "docker-compose.${DATABASE}.yml" logs "erpnext_db"
+  - docker-compose -f "docker-compose.${DATABASE}.yml" ps "erpnext_db" | grep "Up"
+  - docker-compose -f "docker-compose.${DATABASE}.yml" logs "erpnext_app"
+  - docker-compose -f "docker-compose.${DATABASE}.yml" ps "erpnext_app" | grep "Up"
+  - docker-compose -f "docker-compose.${DATABASE}.yml" logs "erpnext_web"
+  - docker-compose -f "docker-compose.${DATABASE}.yml" ps "erpnext_web" | grep "Up"
+  - docker-compose -f "docker-compose.${DATABASE}.yml" ps "sut" | grep "Exit 0"
+  # Test container restart
+  - docker-compose -f "docker-compose.${DATABASE}.yml" down
+  - travis_retry docker-compose -f "docker-compose.${DATABASE}.yml" up -d
+  - docker-compose -f "docker-compose.${DATABASE}.yml" logs -f "sut"
+  - docker-compose -f "docker-compose.${DATABASE}.yml" ps
+  - docker-compose -f "docker-compose.${DATABASE}.yml" logs "erpnext_db"
+  - docker-compose -f "docker-compose.${DATABASE}.yml" ps "erpnext_db" | grep "Up" || exit 1
+  - docker-compose -f "docker-compose.${DATABASE}.yml" logs "erpnext_app"
+  - docker-compose -f "docker-compose.${DATABASE}.yml" ps "erpnext_app" | grep "Up" || exit 1
+  - docker-compose -f "docker-compose.${DATABASE}.yml" logs "erpnext_web"
+  - docker-compose -f "docker-compose.${DATABASE}.yml" ps "erpnext_web" | grep "Up" || exit 1
+  - docker-compose -f "docker-compose.${DATABASE}.yml" ps "sut" | grep "Exit 0"
+  # Test container migrate
+  - docker-compose -f "docker-compose.${DATABASE}.yml" run --rm "erpnext_app" bench migrate --help
+  - docker-compose -f "docker-compose.${DATABASE}.yml" run --rm "erpnext_app" migrate
+  # Test container backup
+  - docker-compose -f "docker-compose.${DATABASE}.yml" run --rm "erpnext_app" bench backup --help
+  - docker-compose -f "docker-compose.${DATABASE}.yml" run --rm "erpnext_app" backup && sleep 5
+  - docker-compose -f "docker-compose.${DATABASE}.yml" run --rm "erpnext_app" backup && sleep 5
+  - docker-compose -f "docker-compose.${DATABASE}.yml" run --rm "erpnext_app" backup && sleep 5
+  - docker-compose -f "docker-compose.${DATABASE}.yml" run --rm "erpnext_app" bench restore --help
+  # Test container "old" restore (file number instead of file name)
+  - docker-compose -f "docker-compose.${DATABASE}.yml" run --rm "erpnext_app" restore 1
+
+notifications:
+  email: false
+
+matrix:
+  allow_failures:
+    - env: VERSION=develop VARIANT=alpine DATABASE=postgres
+    - env: VERSION=develop VARIANT=alpine DATABASE=mariadb
+    - env: VERSION=develop VARIANT=debian-slim DATABASE=postgres
+    - env: VERSION=develop VARIANT=debian-slim DATABASE=mariadb
+    - env: VERSION=develop VARIANT=debian DATABASE=postgres
+    - env: VERSION=develop VARIANT=debian DATABASE=mariadb
+    - env: VERSION=13 VARIANT=alpine DATABASE=postgres
+    - env: VERSION=13 VARIANT=alpine DATABASE=mariadb
+    - env: VERSION=13 VARIANT=debian-slim DATABASE=postgres
+    - env: VERSION=13 VARIANT=debian-slim DATABASE=mariadb
+    - env: VERSION=13 VARIANT=debian DATABASE=postgres
+    - env: VERSION=13 VARIANT=debian DATABASE=mariadb
+    # Postgresql does not seem well supported yet...
+    - env: VERSION=12 VARIANT=alpine DATABASE=postgres
+    - env: VERSION=12 VARIANT=debian-slim DATABASE=postgres
+    - env: VERSION=12 VARIANT=debian DATABASE=postgres
+    # Stop supporting Frappe 10 and Python 2
+    - env: VERSION=10 VARIANT=alpine DATABASE=mariadb
+    - env: VERSION=10 VARIANT=debian-slim DATABASE=mariadb
+    - env: VERSION=10 VARIANT=debian DATABASE=mariadb
+
+env: # Environments
+  - VERSION=develop VARIANT=alpine DATABASE=postgres
+  - VERSION=develop VARIANT=alpine DATABASE=mariadb
+  - VERSION=develop VARIANT=debian-slim DATABASE=postgres
+  - VERSION=develop VARIANT=debian-slim DATABASE=mariadb
+  - VERSION=develop VARIANT=debian DATABASE=postgres
+  - VERSION=develop VARIANT=debian DATABASE=mariadb
+  - VERSION=11 VARIANT=alpine DATABASE=mariadb
+  - VERSION=11 VARIANT=debian-slim DATABASE=mariadb
+  - VERSION=11 VARIANT=debian DATABASE=mariadb
+  - VERSION=12 VARIANT=alpine DATABASE=postgres
+  - VERSION=12 VARIANT=alpine DATABASE=mariadb
+  - VERSION=12 VARIANT=debian-slim DATABASE=postgres
+  - VERSION=12 VARIANT=debian-slim DATABASE=mariadb
+  - VERSION=12 VARIANT=debian DATABASE=postgres
+  - VERSION=12 VARIANT=debian DATABASE=mariadb
+  - VERSION=13 VARIANT=alpine DATABASE=postgres
+  - VERSION=13 VARIANT=alpine DATABASE=mariadb
+  - VERSION=13 VARIANT=debian-slim DATABASE=postgres
+  - VERSION=13 VARIANT=debian-slim DATABASE=mariadb
+  - VERSION=13 VARIANT=debian DATABASE=postgres
+  - VERSION=13 VARIANT=debian DATABASE=mariadb

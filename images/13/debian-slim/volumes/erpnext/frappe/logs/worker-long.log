@@ -1,0 +1,37 @@
+10:36:42 Worker rq:worker:0867624dac0446acb1465a0ea34f856e.cd688e2fa75e.572.long: started, version 1.6.1
+10:36:42 Subscribing to channel rq:pubsub:0867624dac0446acb1465a0ea34f856e.cd688e2fa75e.572.long
+10:36:42 *** Listening on long...
+10:36:42 Cleaning registries for queue: long
+10:37:44 long: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.core.doctype.scheduled_job_type.scheduled_job_type.run_scheduled_jo..., kwargs={'job_type': 'frappe.integrations.doctype.s3_backup_settings.s3_backup_sett..., method='frappe.core.doctype.scheduled_job_type.scheduled_job_type.run_scheduled_jo..., site='localhost', user='Administrator') (ee69101f-b1ef-4b35-8fef-2317e4e4bb4e)
+10:37:45 long: Job OK (ee69101f-b1ef-4b35-8fef-2317e4e4bb4e)
+10:37:45 Result is kept for 500 seconds
+10:37:45 long: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.core.doctype.scheduled_job_type.scheduled_job_type.run_scheduled_jo..., kwargs={'job_type': 'frappe.integrations.doctype.google_drive.google_drive.weekly_..., method='frappe.core.doctype.scheduled_job_type.scheduled_job_type.run_scheduled_jo..., site='localhost', user='Administrator') (334be31e-c5d7-445f-8e77-510e66658ffe)
+10:37:46 long: Job OK (334be31e-c5d7-445f-8e77-510e66658ffe)
+10:37:46 Result is kept for 500 seconds
+10:37:46 long: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.core.doctype.scheduled_job_type.scheduled_job_type.run_scheduled_jo..., kwargs={'job_type': 'frappe.social.doctype.energy_point_log.energy_point_log.send_..., method='frappe.core.doctype.scheduled_job_type.scheduled_job_type.run_scheduled_jo..., site='localhost', user='Administrator') (f4466e26-f017-429f-8735-d2bb0ac41c94)
+10:37:46 long: Job OK (f4466e26-f017-429f-8735-d2bb0ac41c94)
+10:37:46 Result is kept for 500 seconds
+10:37:46 long: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.core.doctype.scheduled_job_type.scheduled_job_type.run_scheduled_jo..., kwargs={'job_type': 'frappe.desk.form.document_follow.send_weekly_updates'}, method='frappe.core.doctype.scheduled_job_type.scheduled_job_type.run_scheduled_jo..., site='localhost', user='Administrator') (321b8a33-421b-4000-bc56-25bbf121adec)
+10:37:47 long: Job OK (321b8a33-421b-4000-bc56-25bbf121adec)
+10:37:47 Result is kept for 500 seconds
+10:37:47 long: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.core.doctype.scheduled_job_type.scheduled_job_type.run_scheduled_jo..., kwargs={'job_type': 'frappe.desk.doctype.route_history.route_history.flush_old_rou..., method='frappe.core.doctype.scheduled_job_type.scheduled_job_type.run_scheduled_jo..., site='localhost', user='Administrator') (9eb60b99-f7d1-4b0d-87ec-c2c1123ad537)
+10:37:47 long: Job OK (9eb60b99-f7d1-4b0d-87ec-c2c1123ad537)
+10:37:47 Result is kept for 500 seconds
+10:37:47 long: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.core.doctype.scheduled_job_type.scheduled_job_type.run_scheduled_jo..., kwargs={'job_type': 'frappe.integrations.doctype.s3_backup_settings.s3_backup_sett..., method='frappe.core.doctype.scheduled_job_type.scheduled_job_type.run_scheduled_jo..., site='localhost', user='Administrator') (5d8388f9-727d-460f-be6f-12ac51ae2877)
+10:37:48 long: Job OK (5d8388f9-727d-460f-be6f-12ac51ae2877)
+10:37:48 Result is kept for 500 seconds
+10:37:48 long: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.core.doctype.scheduled_job_type.scheduled_job_type.run_scheduled_jo..., kwargs={'job_type': 'frappe.integrations.doctype.dropbox_settings.dropbox_settings..., method='frappe.core.doctype.scheduled_job_type.scheduled_job_type.run_scheduled_jo..., site='localhost', user='Administrator') (6da5a645-93f6-4744-b952-270acc5e174f)
+10:37:49 long: Job OK (6da5a645-93f6-4744-b952-270acc5e174f)
+10:37:49 Result is kept for 500 seconds
+10:37:49 long: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.core.doctype.scheduled_job_type.scheduled_job_type.run_scheduled_jo..., kwargs={'job_type': 'frappe.integrations.doctype.google_drive.google_drive.daily_b..., method='frappe.core.doctype.scheduled_job_type.scheduled_job_type.run_scheduled_jo..., site='localhost', user='Administrator') (c26bc4f7-6941-4e59-a57f-6eec02f4a895)
+10:37:49 long: Job OK (c26bc4f7-6941-4e59-a57f-6eec02f4a895)
+10:37:49 Result is kept for 500 seconds
+10:37:49 long: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.core.doctype.scheduled_job_type.scheduled_job_type.run_scheduled_jo..., kwargs={'job_type': 'frappe.integrations.doctype.s3_backup_settings.s3_backup_sett..., method='frappe.core.doctype.scheduled_job_type.scheduled_job_type.run_scheduled_jo..., site='localhost', user='Administrator') (7bb6b1e5-ece8-47f3-b8a2-1c9fa337e74a)
+10:37:50 long: Job OK (7bb6b1e5-ece8-47f3-b8a2-1c9fa337e74a)
+10:37:50 Result is kept for 500 seconds
+10:37:50 long: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.core.doctype.scheduled_job_type.scheduled_job_type.run_scheduled_jo..., kwargs={'job_type': 'frappe.utils.change_log.check_for_update'}, method='frappe.core.doctype.scheduled_job_type.scheduled_job_type.run_scheduled_jo..., site='localhost', user='Administrator') (cc911994-4ccd-4a0a-9eb0-8e116f425036)
+10:37:51 long: Job OK (cc911994-4ccd-4a0a-9eb0-8e116f425036)
+10:37:51 Result is kept for 500 seconds
+10:37:51 long: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.core.doctype.scheduled_job_type.scheduled_job_type.run_scheduled_jo..., kwargs={'job_type': 'frappe.integrations.doctype.dropbox_settings.dropbox_settings..., method='frappe.core.doctype.scheduled_job_type.scheduled_job_type.run_scheduled_jo..., site='localhost', user='Administrator') (e7a4e9f3-07ed-4f7b-8b9f-5e9498ab5b72)
+10:37:52 long: Job OK (e7a4e9f3-07ed-4f7b-8b9f-5e9498ab5b72)
+10:37:52 Result is kept for 500 seconds
